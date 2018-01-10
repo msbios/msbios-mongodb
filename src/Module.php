@@ -4,7 +4,7 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  * @link https://github.com/RWOverdijk/AssetManager
  */
-namespace MSBios\Assetic;
+namespace MSBios\MongoDB;
 
 use MSBios\ModuleInterface;
 use Zend\Console\Adapter\AdapterInterface;
@@ -20,7 +20,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
  * Class Module
- * @package MSBios\Assetic
+ * @package MSBios\MongoDB
  */
 class Module implements
     ModuleInterface,
@@ -28,7 +28,7 @@ class Module implements
     AutoloaderProviderInterface,
     ConsoleUsageProviderInterface
 {
-    const VERSION = '1.0.1';
+    const VERSION = '1.0.0';
 
     /**
      * @return mixed
