@@ -8,8 +8,6 @@
 return [
     // Retrieve list of modules used in this application.
     'modules' => [
-        'Zend\Router',
-        'MSBios\Assetic',
     ],
 
     'module_listener_options' => [

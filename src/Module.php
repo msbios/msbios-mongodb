@@ -24,7 +24,6 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  */
 class Module implements
     ModuleInterface,
-    BootstrapListenerInterface,
     AutoloaderProviderInterface
 {
     /** @const VERSION */
@@ -36,26 +35,6 @@ class Module implements
     public function getConfig()
     {
         return include __DIR__ . '/../config/module.config.php';
-    }
-
-    /**
-     * Listen to the bootstrap event
-     *
-     * @param EventInterface $e
-     * @return array
-     */
-    public function onBootstrap(EventInterface $e)
-    {
-        /** @var ApplicationInterface $target */
-        $target = $e->getTarget();
-
-        /** @var ServiceLocatorInterface $serviceManager */
-        $serviceManager = $target->getServiceManager();
-
-        (new LazyListenerAggregate(
-            $serviceManager->get(self::class)['listeners'],
-            $serviceManager
-        ))->attach($target->getEventManager());
     }
 
     /**
