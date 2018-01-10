@@ -7,20 +7,14 @@
 namespace MSBios\MongoDB;
 
 use MSBios\ModuleInterface;
-use Zend\Console\Adapter\AdapterInterface;
-use Zend\EventManager\EventInterface;
-use Zend\EventManager\LazyListenerAggregate;
 use Zend\Loader\AutoloaderFactory;
 use Zend\Loader\StandardAutoloader;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Zend\ModuleManager\Feature\BootstrapListenerInterface;
-use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
-use Zend\Mvc\ApplicationInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
  * Class Module
  * @package MSBios\MongoDB
+ * @link https://github.com/phly/PhlyMongo
  */
 class Module implements
     ModuleInterface,

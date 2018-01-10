@@ -6,14 +6,6 @@
 namespace MSBios\MongoDB;
 
 return [
-    'service_manager' => [
-        'factories' => [
-            Module::class =>
-                Factory\ModuleFactory::class,
-            \MongoDB\Client::class =>
-                Factory\ClientFactory::class
-        ]
-    ],
 
     Module::class => [
 
@@ -43,5 +35,5 @@ return [
                 //...
             ]
         ]
-    ],
+    ]
 ];
