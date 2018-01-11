@@ -6,14 +6,15 @@
 namespace MSBios\MongoDB\Factory;
 
 use Interop\Container\ContainerInterface;
+use MongoDB\Collection;
 use MSBios\MongoDB\Module;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
 /**
- * Class ClientFactory
+ * Class CollectionFactory
  * @package MSBios\MongoDB\Factory
  */
-class ClientFactory implements FactoryInterface
+class CollectionFactory implements FactoryInterface
 {
     /**
      * @param ContainerInterface $container
@@ -23,10 +24,5 @@ class ClientFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        /** @var array $options */
-        $options = $container->get(Module::class);
-        return (new \ReflectionClass($requestedName))->newInstanceArgs(
-            $options[$requestedName]
-        );
     }
 }
