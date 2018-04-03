@@ -7,11 +7,12 @@ namespace MSBios\MongoDB;
 
 return [
     'service_manager' => [
+        'abstract_factories' => [
+            new Factory\ClientAbstractFactory
+        ],
         'factories' => [
             Module::class =>
                 Factory\ModuleFactory::class,
-            \MongoDB\Client::class =>
-                Factory\ClientFactory::class
         ]
     ],
 

@@ -16,7 +16,6 @@ use Zend\ServiceManager\Factory\FactoryInterface;
  */
 class ModuleFactory implements FactoryInterface
 {
-
     /**
      * @param ContainerInterface $container
      * @param string $requestedName
