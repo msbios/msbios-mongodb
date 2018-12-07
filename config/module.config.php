@@ -5,14 +5,17 @@
  */
 namespace MSBios\MongoDB;
 
+use MSBios\Factory\ModuleFactory;
+
 return [
     'service_manager' => [
         'abstract_factories' => [
-            new Factory\ClientAbstractFactory
+            Factory\ClientAbstractFactory::class =>
+                new Factory\ClientAbstractFactory
         ],
         'factories' => [
             Module::class =>
-                Factory\ModuleFactory::class,
+                ModuleFactory::class,
         ]
     ],
 

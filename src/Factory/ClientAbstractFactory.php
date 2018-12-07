@@ -16,6 +16,8 @@ use Zend\ServiceManager\Factory\AbstractFactoryInterface;
 class ClientAbstractFactory implements AbstractFactoryInterface
 {
     /**
+     * @inheritdoc
+     *
      * @param ContainerInterface $container
      * @param string $requestedName
      * @return bool
@@ -28,20 +30,24 @@ class ClientAbstractFactory implements AbstractFactoryInterface
     }
 
     /**
+     * @inheritdoc
+     *
      * @param ContainerInterface $container
      * @param string $requestedName
      * @param array|null $options
      * @return object
+     * @throws \ReflectionException
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        /** @var array $options */
-        $options = $container->get(Module::class);
+        /** @var array $defaultOptions */
+        $defaultOptions = $container->build(Module::class, $options);
 
         /** @var array $args */
-        $args = $options[$requestedName] ?: $options;
+        $args = $defaultOptions[$requestedName] ?: $defaultOptions;
 
-        return (new \ReflectionClass($requestedName))->newInstanceArgs($args);
+        return (new \ReflectionClass($requestedName))
+            ->newInstanceArgs($args);
     }
 
     /**

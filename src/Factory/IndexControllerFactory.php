@@ -18,10 +18,12 @@ use Zend\ServiceManager\Factory\FactoryInterface;
 class IndexControllerFactory implements FactoryInterface
 {
     /**
+     * @inheritdoc
+     *
      * @param ContainerInterface $container
      * @param string $requestedName
      * @param array|null $options
-     * @return IndexController
+     * @return IndexController|object
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
