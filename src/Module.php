@@ -6,46 +6,34 @@
  */
 namespace MSBios\MongoDB;
 
-use MSBios\ModuleInterface;
-use Zend\Loader\AutoloaderFactory;
-use Zend\Loader\StandardAutoloader;
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-
 /**
  * Class Module
+ *
  * @package MSBios\MongoDB
  * @link https://github.com/phly/PhlyMongo
  */
-class Module implements
-    ModuleInterface,
-    AutoloaderProviderInterface
+class Module extends \MSBios\Module
 {
     /** @const VERSION */
-    const VERSION = '1.0.3';
+    const VERSION = '2.0.0';
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      *
-     * @return array|mixed|\Traversable
+     * @return string
      */
-    public function getConfig()
+    protected function getDir(): string
     {
-        return include __DIR__ . '/../config/module.config.php';
+        return __DIR__;
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      *
-     * @return array
+     * @return string
      */
-    public function getAutoloaderConfig()
+    protected function getNamespace(): string
     {
-        return [
-            AutoloaderFactory::STANDARD_AUTOLOADER => [
-                StandardAutoloader::LOAD_NS => [
-                    __NAMESPACE__ => __DIR__,
-                ],
-            ],
-        ];
+        return __NAMESPACE__;
     }
 }
